@@ -1,0 +1,152 @@
+body.dark {
+  background-color: #202d36;
+  color: #fff;
+}
+nav.navbar {
+  background: #fff;
+  padding: 15px 0;
+}
+.dark nav.navbar {
+  background: #2b3743;
+}
+body.dark .countryCards-grid .card {
+  background: #2b3743;
+  color: #fff;
+  border: 1px solid #444;
+}
+.home-search-wrap {
+  padding: 5px 0 5px 15px;
+  background: rgb(255 255 255 / 95%);
+  border: 1px solid #dee2e6;
+}
+.home-search-wrap span {
+  border: 0;
+  outline: 0;
+  background: transparent !important;
+}
+
+.home-search-wrap input {
+  border: 0;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.dark .home-search-wrap {
+  background: #2b3743;
+  border-color: #444;
+}
+.dark .home-search-wrap input {
+  color: #fff;
+}
+.dark .home-search-wrap input::placeholder {
+  color: #fff;
+}
+.dark .home-search-wrap span {
+  color: #fff;
+}
+.home-filter-dropdown {
+  max-width: 224px;
+  margin-left: auto;
+}
+
+.home-filter-dropdown button {
+  padding: 10px 25px;
+
+  border-color: #dee2e6 !important;
+  position: relative;
+}
+
+.home-filter-dropdown button::after {
+  content: unset;
+}
+.home-filter-dropdown button i {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.home-filter-dropdown .dropdown-menu {
+  border-radius: 0;
+}
+.dark .home-filter-dropdown button {
+  background: #2b3743 !important;
+  color: #fff !important;
+  border-color: #444 !important;
+}
+.dark .home-filter-dropdown .dropdown-menu {
+  background: #2b3743 !important;
+}
+.dark .home-filter-dropdown .dropdown-menu a {
+  color: #fff !important;
+}
+.dark .home-filter-dropdown .dropdown-menu a:hover {
+  background: #383f47 !important;
+}
+button.btn.btn-clear {
+  border-color: transparent !important;
+  outline: none;
+  min-height: 46px;
+}
+
+.countryCard p {
+  margin: 0 0 5px;
+}
+.Country,
+.home {
+  min-height: 92vh;
+}
+.Country img {
+  max-height: 350px;
+}
+.Country p {
+  margin-bottom: 10px;
+  color: #656668;
+}
+body.dark .Country p {
+  color: #fff;
+}
+body.dark .Country a {
+  color: #fff;
+}
+.btn-back i {
+  font-size: 19px;
+  margin-right: 7px;
+  opacity: 0.8;
+}
+
+.btn-back {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+  background-color: #fff !important;
+  min-width: 120px;
+  border: 1px solid #dee2e6;
+}
+body.dark .btn-back {
+  background-color: #2b3743 !important;
+  border: 1px solid #444 !important;
+}
+.btn-loadmore {
+  margin-top: -15px;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 992px) {
+  .home-filter-dropdown-wrap {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  .home-filter-dropdown {
+    margin-left: unset;
+  }
+
+  .countryCard img {
+    height: 200px;
+  }
+
+  .card-body {
+    padding-bottom: 30px !important;
+  }
+}
