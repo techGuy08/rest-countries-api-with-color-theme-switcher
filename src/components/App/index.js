@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Root from "../../routes/Root";
 import Country from "../../routes/Country";
 import ErrorPage from "../../routes/404";
@@ -83,7 +83,7 @@ function App() {
     }
     document.body.classList.add(themeMode);
   }, [countryList, filteredList, maxResults, themeMode]);
-  const router = createBrowserRouter([
+  const router = createHashRouter([
     {
       path: "/",
       element: (
