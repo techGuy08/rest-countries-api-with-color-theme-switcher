@@ -17,7 +17,6 @@ function App() {
   let maxResults = 20;
 
   const toggleDarkMode = () => {
-    // document.body.classList.toggle("dark");
     let value = themeMode === "light" ? "dark" : "light";
     setThemeMode(value);
     ["dark", "light"].forEach((val) => document.body.classList.remove(val));
@@ -37,7 +36,6 @@ function App() {
     });
 
     setFilteredList(sorted);
-
     setTimeout(() => {
       setVisibleList(sorted.slice(0, maxResults));
     }, 100);
@@ -79,7 +77,7 @@ function App() {
     if (!countryList.length) {
       getAllCountries();
     } else {
-      setVisibleList(countryList.slice(0, maxResults));
+      setVisibleList(filteredList.slice(0, maxResults));
     }
     document.body.classList.add(themeMode);
   }, [countryList, filteredList, maxResults, themeMode]);
@@ -95,6 +93,7 @@ function App() {
           formatNumber={formatNumber}
           loadMoreClick={loadMoreClick}
           filteredList={filteredList}
+          countryList={countryList}
         />
       ),
     },

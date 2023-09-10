@@ -10,9 +10,9 @@ export default function Root({
   formatNumber,
   loadMoreClick,
   filteredList,
+  countryList
 }) {
   const handleLoadMoreClick = (e) => {
-    // updateVisibleList();
     loadMoreClick();
   };
   let isAllVisible = filteredList.length <= visibleList.length;
@@ -21,7 +21,11 @@ export default function Root({
       <header className="header">
         <Navbar themeMode={themeMode} toggleDarkMode={toggleDarkMode} />
       </header>
-      <HomeFilter updateVisibleList={updateVisibleList} />
+      <HomeFilter
+        updateVisibleList={updateVisibleList}
+        filteredList={filteredList}
+        countryList={countryList}
+      />
       <div className="container mt-4">
         <div className="countryCards-grid row">
           {visibleList.map((item, i) => {
