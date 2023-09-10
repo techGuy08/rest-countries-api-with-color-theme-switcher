@@ -105,7 +105,7 @@ export default function Country({
                           <a
                             key={i}
                             href={
-                              "/country/" +
+                              "#/country/" +
                               val.toLowerCase().replaceAll(" ", "-")
                             }
                             className="btn mb-2 border-dark-syvtle border rounded-0 border-1 px-4 py-1 mx-1 btn-Cborders"

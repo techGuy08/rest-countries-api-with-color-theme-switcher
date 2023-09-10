@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 function CountryCard({ info, formatNumber }) {
   return (
     <a
-      href={`/country/${info.name.common.toLowerCase().replaceAll(" ", "-")}`}
+      href={`#/country/${info.name.common.toLowerCase().replaceAll(" ", "-")}`}
       className="countryCard text-decoration-none"
     >
       <Card style={{ width: "100%", minHeight: 330 }}>
