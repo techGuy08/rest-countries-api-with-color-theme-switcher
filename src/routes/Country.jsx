@@ -46,14 +46,18 @@ export default function Country({
       {navElement}
       <div className="container mt-5">
         <Link to="/" className="shadow btn border-0 btn-back">
-        <i className="fa-solid fa-arrow-left-long"></i> Back
+          <i className="fa-solid fa-arrow-left-long"></i> Back
         </Link>
       </div>
       <div className="container mt-5">
         {item && (
           <div className="row">
             <div className="col-md-5 px-3 px-sm-0 mb-4">
-              <img src={item.flags.png} alt={item.altSpellings[0]} className="img-fluid w-100" />
+              <img
+                src={item.flags.png}
+                alt={item.altSpellings[0] || "image"}
+                className="img-fluid w-100"
+              />
             </div>
             <div className="col-md-6 ms-auto  px-3 px-sm-0 mt-3">
               <h2>{item.name.common}</h2>
