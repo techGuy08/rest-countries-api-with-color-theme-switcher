@@ -94,8 +94,7 @@ button.btn.btn-clear {
   margin: 0 0 5px;
 }
 .Country,
-.home,
-.error-page {
+.home {
   min-height: 92vh;
 }
 .Country img {

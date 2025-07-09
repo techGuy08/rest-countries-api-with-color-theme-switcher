@@ -16,6 +16,7 @@ export default function Country({
   let index = countryList.findIndex(
     (el) => el.name.common.toLowerCase() === name
   );
+
   let item = countryList[index];
   const getBorderCountries = (codes = []) => {
     let arr = [];
@@ -55,7 +56,7 @@ export default function Country({
             <div className="col-md-5 px-3 px-sm-0 mb-4">
               <img
                 src={item.flags.png}
-                alt={item.altSpellings[0] || "image"}
+                alt={item.name}
                 className="img-fluid w-100"
               />
             </div>
@@ -76,10 +77,6 @@ export default function Country({
                     {item.region || "-"}
                   </p>
                   <p>
-                    <strong>Sub Region: </strong>
-                    {item.subregion || "-"}
-                  </p>
-                  <p>
                     <strong>Capital: </strong>
                     {item.capital[0] || "-"}
                   </p>
@@ -97,6 +94,7 @@ export default function Country({
                     <strong>Languages: </strong>
                     {Object.values(item.languages).join(", ") || "-"}
                   </p>
+                  {console.log(item)}
                 </div>
               </div>
               <p className="mt-4 d-flex flex-wrap align-items-center">

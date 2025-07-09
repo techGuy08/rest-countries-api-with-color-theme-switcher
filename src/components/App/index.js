@@ -17,6 +17,7 @@ function App() {
   let maxResults = 20;
 
   const toggleDarkMode = () => {
+    // document.body.classList.toggle("dark");
     let value = themeMode === "light" ? "dark" : "light";
     setThemeMode(value);
     ["dark", "light"].forEach((val) => document.body.classList.remove(val));
@@ -36,6 +37,7 @@ function App() {
     });
 
     setFilteredList(sorted);
+
     setTimeout(() => {
       setVisibleList(sorted.slice(0, maxResults));
     }, 100);
@@ -60,7 +62,7 @@ function App() {
 
   useEffect(() => {
     const getAllCountries = async () => {
-      const data = await fetch(API_URL + "all")
+      const data = await fetch(API_URL + "all?fields=name,capital,currencies,region,population,flags,cca3,borders,tld,languages")
         .then((res) => res.json())
         .then((data) => {
           let values = [...data];
@@ -77,7 +79,7 @@ function App() {
     if (!countryList.length) {
       getAllCountries();
     } else {
-      setVisibleList(filteredList.slice(0, maxResults));
+      setVisibleList(countryList.slice(0, maxResults));
     }
     document.body.classList.add(themeMode);
   }, [countryList, filteredList, maxResults, themeMode]);
@@ -93,7 +95,6 @@ function App() {
           formatNumber={formatNumber}
           loadMoreClick={loadMoreClick}
           filteredList={filteredList}
-          countryList={countryList}
         />
       ),
     },

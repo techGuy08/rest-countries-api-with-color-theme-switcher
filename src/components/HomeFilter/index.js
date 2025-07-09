@@ -4,16 +4,8 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Dropdown from "react-bootstrap/Dropdown";
 
-export default function HomeFilter({
-  updateVisibleList,
-  countryList,
-  filteredList,
-}) {
-  let savedLabel =
-    countryList.length !== filteredList.length
-      ? sessionStorage.getItem("filterBy")
-      : "";
-  const [filterBy, setFilterBy] = useState(savedLabel || "all");
+export default function HomeFilter({ updateVisibleList }) {
+  const [filterBy, setFilterBy] = useState("all");
   const [searchBy, setSearchBy] = useState("");
 
   const handleSearchChange = (event) => {
@@ -25,7 +17,6 @@ export default function HomeFilter({
     });
   };
   const handleFilterByChange = (value) => {
-    sessionStorage.setItem("filterBy", value);
     let keys = {
       American: "Americas",
     };
