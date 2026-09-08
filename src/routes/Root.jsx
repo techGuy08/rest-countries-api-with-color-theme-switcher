@@ -12,7 +12,6 @@ export default function Root({
   filteredList,
 }) {
   const handleLoadMoreClick = (e) => {
-    // updateVisibleList();
     loadMoreClick();
   };
   let isAllVisible = filteredList.length <= visibleList.length;

@@ -5,11 +5,11 @@ import Country from "../../routes/Country";
 import ErrorPage from "../../routes/404";
 import "./App.css";
 
-const API_URL = "https://restcountries.com/v3.1/";
+const API_URL = "https://countries.dev/countries";
 
 function App() {
   const [themeMode, setThemeMode] = useState(
-    localStorage.getItem("themeMode") || "light"
+    localStorage.getItem("themeMode") || "light",
   );
   const [countryList, setCountryList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -17,7 +17,6 @@ function App() {
   let maxResults = 20;
 
   const toggleDarkMode = () => {
-    // document.body.classList.toggle("dark");
     let value = themeMode === "light" ? "dark" : "light";
     setThemeMode(value);
     ["dark", "light"].forEach((val) => document.body.classList.remove(val));
@@ -32,7 +31,7 @@ function App() {
         (el.region.toLowerCase().includes(filterBy.toLowerCase()) ||
           !filterBy.length) &&
         (!searchBy.length ||
-          el.name.common.toLowerCase().includes(searchBy.toLowerCase()))
+          el.name.toLowerCase().includes(searchBy.toLowerCase()))
       );
     });
 
@@ -62,14 +61,14 @@ function App() {
 
   useEffect(() => {
     const getAllCountries = async () => {
-      const data = await fetch(API_URL + "all?fields=name,capital,currencies,region,population,flags,cca3,borders,tld,languages")
+      const data = await fetch(API_URL)
         .then((res) => res.json())
         .then((data) => {
-          let values = [...data];
+          let values = [...data].reverse();
           setCountryList(values);
           setFilteredList(values);
           setVisibleList(values.slice(0, maxResults));
-
+          console.log(values);
           return values;
         });
 

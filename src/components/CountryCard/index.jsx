@@ -3,13 +3,13 @@ import Card from "react-bootstrap/Card";
 function CountryCard({ info, formatNumber }) {
   return (
     <a
-      href={`#/country/${info.name.common.toLowerCase().replaceAll(" ", "-")}`}
+      href={`#/country/${info.name.toLowerCase().replaceAll(" ", "-")}`}
       className="countryCard text-decoration-none"
     >
       <Card style={{ width: "100%", minHeight: 330 }}>
-        <Card.Img variant="top" src={info.flags.png} height="150" />
+        <Card.Img variant="top" src={info.flags.svg} height="150" />
         <Card.Body>
-          <Card.Title>{info.name.common}</Card.Title>
+          <Card.Title>{info.name}</Card.Title>
           <div className="card-text">
             <p>
               <strong>Population: </strong>

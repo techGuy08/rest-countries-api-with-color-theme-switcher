@@ -13,9 +13,7 @@ export default function Country({
   const { id } = useParams();
   let borderCountries = [];
   let name = id.replaceAll("-", " ");
-  let index = countryList.findIndex(
-    (el) => el.name.common.toLowerCase() === name
-  );
+  let index = countryList.findIndex((el) => el.name.toLowerCase() === name);
 
   let item = countryList[index];
   const getBorderCountries = (codes = []) => {
@@ -23,10 +21,10 @@ export default function Country({
     if (codes) {
       arr = countryList
         .filter((el) => {
-          const { cca3 } = el;
-          return codes.includes(cca3);
+          const { alpha3Code } = el;
+          return codes.includes(alpha3Code);
         })
-        .map((el) => el.name.common);
+        .map((el) => el.name);
       borderCountries = arr;
     }
     return arr;
@@ -35,7 +33,7 @@ export default function Country({
   if (item) {
     getBorderCountries(item.borders);
   }
-
+  console.log(borderCountries);
   const navElement = (
     <header className="header">
       <Navbar themeMode={themeMode} toggleDarkMode={toggleDarkMode} />
@@ -55,18 +53,18 @@ export default function Country({
           <div className="row">
             <div className="col-md-5 px-3 px-sm-0 mb-4">
               <img
-                src={item.flags.png}
+                src={item.flags.svg}
                 alt={item.name}
                 className="img-fluid w-100"
               />
             </div>
             <div className="col-md-6 ms-auto  px-3 px-sm-0 mt-3">
-              <h2>{item.name.common}</h2>
+              <h2>{item.name}</h2>
               <div className="row mt-4">
                 <div className="col-sm-6">
                   <p>
                     <strong>Native Name: </strong>
-                    {Object.values(item.name.nativeName)[0].common || "-"}
+                    {item.nativeName || "-"}
                   </p>
                   <p>
                     <strong>Population: </strong>
@@ -78,21 +76,27 @@ export default function Country({
                   </p>
                   <p>
                     <strong>Capital: </strong>
-                    {item.capital[0] || "-"}
+                    {item.capital || "-"}
+                  </p>
+                  <p>
+                    <strong>Timezones: </strong>
+                    {item.timezones.join(", ") || "-"}
                   </p>
                 </div>
                 <div className="col-sm-6">
                   <p>
                     <strong>Top Level Domain: </strong>
-                    {item.tld[0] || "-"}
+                    {item.topLevelDomain[0] || "-"}
                   </p>
                   <p>
                     <strong>Currencies: </strong>
-                    {Object.values(item.currencies)[0].name || "-"}
+                    {item.currencies[0].name || "-"}
                   </p>
                   <p>
                     <strong>Languages: </strong>
-                    {Object.values(item.languages).join(", ") || "-"}
+                    {Object.values(item.languages)
+                      .map((v) => v.name)
+                      .join(", ") || "-"}
                   </p>
                   {console.log(item)}
                 </div>
