@@ -14,6 +14,7 @@ export default defineConfig({
       },
     }),
   ],
+  base:"/rest-countries-api-with-color-theme-switcher",
    server: {
     port: 3000,
     // strictPort: true, // Uncomment this line if you want Vite to fail if port 3000 is already in use

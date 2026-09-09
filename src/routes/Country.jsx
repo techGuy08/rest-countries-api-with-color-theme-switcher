@@ -53,7 +53,7 @@ export default function Country({
           <div className="row">
             <div className="col-md-5 px-3 px-sm-0 mb-4">
               <img
-                src={item.flags.svg}
+                src={item.flags.svg || item.flags.png}
                 alt={item.name}
                 className="img-fluid w-100"
               />
@@ -90,7 +90,7 @@ export default function Country({
                   </p>
                   <p>
                     <strong>Currencies: </strong>
-                    {item.currencies[0].name || "-"}
+                    {item.currencies.map((el) => el.name).join(", ") || "-"}
                   </p>
                   <p>
                     <strong>Languages: </strong>

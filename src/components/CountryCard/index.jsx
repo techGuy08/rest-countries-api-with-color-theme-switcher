@@ -7,7 +7,11 @@ function CountryCard({ info, formatNumber }) {
       className="countryCard text-decoration-none"
     >
       <Card style={{ width: "100%", minHeight: 330 }}>
-        <Card.Img variant="top" src={info.flags.svg} height="150" />
+        <Card.Img
+          variant="top"
+          src={info.flags.svg || info.flags.png}
+          height="150"
+        />
         <Card.Body>
           <Card.Title>{info.name}</Card.Title>
           <div className="card-text">

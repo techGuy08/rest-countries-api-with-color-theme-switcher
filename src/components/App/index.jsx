@@ -3,6 +3,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Root from "../../routes/Root";
 import Country from "../../routes/Country";
 import ErrorPage from "../../routes/404";
+import missingCountries from "./missingCountries.js";
 import "./App.css";
 
 const API_URL = "https://countries.dev/countries";
@@ -64,11 +65,15 @@ function App() {
       const data = await fetch(API_URL)
         .then((res) => res.json())
         .then((data) => {
-          let values = [...data].reverse();
+          let values = [...data, ...missingCountries]
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .reverse();
           setCountryList(values);
           setFilteredList(values);
           setVisibleList(values.slice(0, maxResults));
-          console.log(values);
+
+          window.allCountries = values;
+          console.log(missingCountries);
           return values;
         });
 
