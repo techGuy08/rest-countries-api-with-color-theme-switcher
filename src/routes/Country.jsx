@@ -33,7 +33,7 @@ export default function Country({
   if (item) {
     getBorderCountries(item.borders);
   }
-  console.log(borderCountries);
+
   const navElement = (
     <header className="header">
       <Navbar themeMode={themeMode} toggleDarkMode={toggleDarkMode} />
@@ -98,7 +98,7 @@ export default function Country({
                       .map((v) => v.name)
                       .join(", ") || "-"}
                   </p>
-                  {console.log(item)}
+                 
                 </div>
               </div>
               <p className="mt-4 d-flex flex-wrap align-items-center">

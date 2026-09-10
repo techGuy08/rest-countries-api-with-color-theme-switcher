@@ -72,8 +72,6 @@ function App() {
           setFilteredList(values);
           setVisibleList(values.slice(0, maxResults));
 
-          window.allCountries = values;
-          console.log(missingCountries);
           return values;
         });
 
